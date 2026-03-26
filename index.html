@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[NAMA BRAND] — Faceless Digital Marketing Bundle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0A0A0A;
+    --paper: #F5F0E8;
+    --cream: #EDE7D9;
+    --accent: #D94F1E;
+    --accent-light: #FAEEE9;
+    --teal: #0D7A65;
+    --teal-light: #E3F2EF;
+    --gold: #C8963E;
+    --gold-light: #FBF5E8;
+    --muted: #7A7468;
+    --border: #DDD6C8;
+    --white: #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ── ANNOUNCEMENT BAR ── */
+  .topbar {
+    background: var(--ink);
+    color: var(--white);
+    text-align: center;
+    padding: 10px 20px;
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .topbar span { color: var(--gold); }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(245,240,232,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: -0.5px;
+  }
+  .nav-brand em { color: var(--accent); font-style: normal; }
+  .nav-cta {
+    background: var(--ink);
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--accent); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px 60px;
+    align-items: center;
+  }
+  .hero-left { padding-right: 60px; }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-light);
+    border: 1px solid #F0C4B5;
+    color: var(--accent);
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 99px;
+    margin-bottom: 28px;
+  }
+  .badge::before { content: '●'; font-size: 8px; animation: pulse 2s ease infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(38px, 4.5vw, 62px);
+    line-height: 1.08;
+    color: var(--ink);
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+    display: block;
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 36px;
+    max-width: 480px;
+  }
+  .hero-desc strong { color: var(--ink); }
+
+  .hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 16px 32px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 8px 24px rgba(217,79,30,0.3);
+  }
+  .btn-primary:hover { background: #C0421A; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(217,79,30,0.4); }
+  .btn-primary .arrow { transition: transform 0.2s; }
+  .btn-primary:hover .arrow { transform: translateX(4px); }
+
+  .btn-secondary {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+  }
+  .btn-secondary:hover { color: var(--ink); border-color: var(--ink); }
+
+  .hero-trust {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+  }
+  .trust-avatars {
+    display: flex;
+  }
+  .trust-avatars span {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--paper);
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    margin-left: -8px;
+  }
+  .trust-avatars span:first-child { margin-left: 0; }
+
+  /* ── HERO RIGHT — PRODUCT CARD ── */
+  .hero-right { position: relative; }
+
+  .product-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 20px 60px rgba(10,10,10,0.08), 0 4px 16px rgba(10,10,10,0.04);
+    position: relative;
+    overflow: hidden;
+    animation: floatCard 6s ease-in-out infinite;
+  }
+  @keyframes floatCard {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--gold), var(--teal));
+  }
+
+  .product-tag {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+  }
+
+  .product-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 22px;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+
+  .bundle-items { display: grid; gap: 10px; margin-bottom: 24px; }
+  .bundle-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--paper);
+    transition: border-color 0.2s;
+  }
+  .bundle-item:hover { border-color: var(--accent); }
+  .bundle-item-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .bundle-item-text { flex: 1; }
+  .bundle-item-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .bundle-item-desc {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .price-section {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    margin-bottom: 16px;
+  }
+  .price-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+  .price-original {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: line-through;
+  }
+  .price-discount {
+    background: var(--teal);
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .price-main {
+    font-family: 'Instrument Serif', serif;
+    font-size: 42px;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .price-note {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .btn-buy {
+    width: 100%;
+    background: var(--accent);
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    padding: 16px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    transition: all 0.2s;
+    box-shadow: 0 6px 20px rgba(217,79,30,0.3);
+    margin-bottom: 10px;
+  }
+  .btn-buy:hover { background: #C0421A; transform: translateY(-1px); box-shadow: 0 10px 28px rgba(217,79,30,0.4); }
+
+  .guarantee-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* ── SECTION STYLES ── */
+  section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    display: inline-block;
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(28px, 3.5vw, 46px);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  h2 em { font-style: italic; color: var(--accent); }
+
+  .section-desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 560px;
+    margin-bottom: 48px;
+  }
+
+  /* ── PAIN SECTION ── */
+  .pain-section {
+    background: var(--ink);
+    max-width: 100%;
+    padding: 80px 40px;
+  }
+  .pain-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .pain-section .section-label { color: var(--gold); }
+  .pain-section h2 { color: var(--white); }
+  .pain-section h2 em { color: var(--gold); }
+  .pain-section .section-desc { color: rgba(255,255,255,0.6); }
+
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .pain-item {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 24px;
+    transition: border-color 0.2s;
+  }
+  .pain-item:hover { border-color: rgba(217,79,30,0.5); }
+  .pain-icon { font-size: 24px; margin-bottom: 12px; }
+  .pain-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .pain-desc { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+  /* ── WHAT YOU GET ── */
+  .get-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .get-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    padding: 28px 24px;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .get-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+  .get-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(10,10,10,0.08); border-color: var(--accent); }
+  .get-card:hover::after { transform: scaleX(1); }
+
+  .get-card:nth-child(2)::after { background: var(--teal); }
+  .get-card:nth-child(2):hover { border-color: var(--teal); }
+  .get-card:nth-child(3)::after { background: var(--gold); }
+  .get-card:nth-child(3):hover { border-color: var(--gold); }
+
+  .get-number {
+    font-family: 'Instrument Serif', serif;
+    font-size: 48px;
+    line-height: 1;
+    margin-bottom: 12px;
+    opacity: 0.12;
+    color: var(--ink);
+  }
+  .get-icon { font-size: 32px; margin-bottom: 16px; }
+  .get-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .get-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+  .get-items { display: grid; gap: 5px; }
+  .get-item {
+    font-size: 11px;
+    color: var(--ink);
+    display: flex;
+    gap: 7px;
+    align-items: flex-start;
+  }
+  .get-item::before { content: '→'; color: var(--accent); font-weight: 900; flex-shrink: 0; }
+  .get-card:nth-child(2) .get-item::before { color: var(--teal); }
+  .get-card:nth-child(3) .get-item::before { color: var(--gold); }
+
+  /* ── FOR WHO ── */
+  .forwho-section {
+    background: var(--cream);
+    max-width: 100%;
+    padding: 80px 40px;
+  }
+  .forwho-inner { max-width: 1100px; margin: 0 auto; }
+  .forwho-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .forwho-col h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .for-col h3 { color: var(--teal); }
+  .nofor-col h3 { color: var(--muted); }
+  .forwho-item {
+    display: flex;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .forwho-item:last-child { border-bottom: none; }
+  .forwho-check { flex-shrink: 0; font-size: 14px; margin-top: 1px; }
+
+  /* ── TESTIMONIALS ── */
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .testi-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    transition: box-shadow 0.2s;
+  }
+  .testi-card:hover { box-shadow: 0 8px 32px rgba(10,10,10,0.08); }
+  .testi-stars {
+    color: var(--gold);
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .testi-text {
+    font-family: 'Instrument Serif', serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  .testi-meta { display: flex; align-items: center; gap: 10px; }
+  .testi-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .testi-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .testi-role { font-size: 11px; color: var(--muted); }
+
+  /* ── FAQ ── */
+  .faq-list { display: grid; gap: 8px; max-width: 720px; }
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--white);
+  }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    gap: 12px;
+    transition: background 0.2s;
+  }
+  .faq-q:hover { background: var(--paper); }
+  .faq-icon { font-size: 18px; color: var(--accent); transition: transform 0.3s; flex-shrink: 0; }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    padding: 0 20px;
+  }
+  .faq-item.open .faq-a { max-height: 200px; padding: 0 20px 18px; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    background: var(--ink);
+    max-width: 100%;
+    padding: 100px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(217,79,30,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .final-inner { max-width: 680px; margin: 0 auto; position: relative; }
+  .final-cta .section-label { color: var(--gold); }
+  .final-cta h2 { color: var(--white); }
+  .final-cta h2 em { color: var(--accent); }
+  .final-cta .section-desc { color: rgba(255,255,255,0.55); margin: 0 auto 40px; }
+
+  .final-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .final-price .orig {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    color: rgba(255,255,255,0.35);
+    text-decoration: line-through;
+  }
+  .final-price .curr {
+    font-family: 'Instrument Serif', serif;
+    font-size: 56px;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .btn-buy-final {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    padding: 18px 48px;
+    border-radius: 14px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 10px 30px rgba(217,79,30,0.4);
+    margin-bottom: 16px;
+  }
+  .btn-buy-final:hover { background: #C0421A; transform: translateY(-2px); box-shadow: 0 16px 40px rgba(217,79,30,0.5); }
+
+  .final-guarantee {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #070707;
+    padding: 32px 40px;
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .footer-brand em { color: var(--accent); font-style: normal; }
+  .footer-note { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+  /* ── DIVIDERS ── */
+  .full-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal:nth-child(2) { transition-delay: 0.1s; }
+  .reveal:nth-child(3) { transition-delay: 0.2s; }
+  .reveal:nth-child(4) { transition-delay: 0.3s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .hero { grid-template-columns: 1fr; padding: 48px 20px 40px; gap: 40px; }
+    .hero-left { padding-right: 0; }
+    .get-grid { grid-template-columns: 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .forwho-grid { grid-template-columns: 1fr; }
+    section { padding: 60px 20px; }
+    .pain-section, .forwho-section, .final-cta, .topbar { padding-left: 20px; padding-right: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="topbar">
+  🔥 Early Bird Price &nbsp;·&nbsp; Hemat <span>55%</span> hari ini &nbsp;·&nbsp; Harga naik Senin depan
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">[NAMA<em> BRAND</em>]</div>
+  <a href="#beli" class="nav-cta">Beli Sekarang — Rp 99rb</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="badge">Bundle Terlengkap 2025</div>
+
+    <h1>
+      Berhenti Nebak-Nebak.
+      <em>Mulai Cuan</em>
+      dari Niche yang Tepat.
+    </h1>
+
+    <p class="hero-desc">
+      Psikotes 10 soal yang <strong>memetakan kepribadianmu</strong> ke niche yang paling menghasilkan,
+      lengkap dengan blueprint konten 30 hari dan panduan membangun marketing profile yang kuat —
+      <strong>semua tanpa tampil di kamera.</strong>
+    </p>
+
+    <div class="hero-actions">
+      <a href="#beli" class="btn-primary">
+        Dapatkan Bundle Lengkapnya <span class="arrow">→</span>
+      </a>
+      <a href="#isi" class="btn-secondary">Lihat isi dulu</a>
+    </div>
+
+    <div class="hero-trust">
+      <div class="trust-avatars">
+        <span>😊</span><span>🙋</span><span>👩</span><span>🧑</span>
+      </div>
+      <span>Sudah digunakan <strong>200+ creator pemula</strong> di Indonesia</span>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="hero-right">
+    <div class="product-card" id="beli">
+      <div class="product-tag">Bundle Eksklusif</div>
+      <div class="product-title">Faceless Marketing<br>Complete Bundle</div>
+
+      <div class="bundle-items">
+        <div class="bundle-item">
+          <div class="bundle-item-icon" style="background:#FFF0EC;">🧭</div>
+          <div class="bundle-item-text">
+            <div class="bundle-item-name">Modul Psikotes Interaktif</div>
+            <div class="bundle-item-desc">10 soal + analisis niche personal + roadmap 90 hari langsung</div>
+          </div>
+        </div>
+        <div class="bundle-item">
+          <div class="bundle-item-icon" style="background:#E3F2EF;">📋</div>
+          <div class="bundle-item-text">
+            <div class="bundle-item-name">PDF Blueprint Lengkap</div>
+            <div class="bundle-item-desc">9 bab panduan — marketing profile, persona faceless, checklist</div>
+          </div>
+        </div>
+        <div class="bundle-item">
+          <div class="bundle-item-icon" style="background:#FBF5E8;">📅</div>
+          <div class="bundle-item-text">
+            <div class="bundle-item-name">Blueprint Konten 30 Hari</div>
+            <div class="bundle-item-desc">28 template konten TikTok & IG siap pakai + formula caption</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-section">
+        <div class="price-row">
+          <span class="price-original">Rp 220.000</span>
+          <span class="price-discount">HEMAT 55%</span>
+        </div>
+        <div class="price-main">Rp 99.000</div>
+        <div class="price-note">Bayar sekali, akses selamanya</div>
+      </div>
+
+      <a href="https://gumroad.com/l/[LINK-PRODUKMU]" class="btn-buy" target="_blank">
+        Beli Sekarang — Rp 99.000 →
+      </a>
+      <div class="guarantee-note">🔒 Pembayaran aman via Gumroad &nbsp;·&nbsp; Akses instan</div>
+    </div>
+  </div>
+</div>
+
+<hr class="full-divider">
+
+<!-- PAIN SECTION -->
+<div class="pain-section">
+  <div class="pain-inner">
+    <span class="section-label">Masalah yang Kamu Hadapi</span>
+    <h2>Kamu Bukan Malas.<br>Kamu Hanya <em>Salah Arah.</em></h2>
+    <p class="section-desc">
+      Mayoritas pemula gagal bukan karena kurang usaha — tapi karena memulai dari niche yang salah
+      sejak hari pertama. Apakah ini terasa familiar?
+    </p>
+
+    <div class="pain-grid">
+      <div class="pain-item">
+        <div class="pain-icon">😵‍💫</div>
+        <div class="pain-title">Bingung Harus Mulai dari Mana</div>
+        <div class="pain-desc">Sudah nonton ratusan tutorial tapi masih stuck di titik nol.</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">📉</div>
+        <div class="pain-title">Posting Terus Tapi Nggak Laku</div>
+        <div class="pain-desc">Konten dibuat tiap hari, tapi penjualan tetap nol bulan demi bulan.</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">🎭</div>
+        <div class="pain-title">Takut Tampil di Kamera</div>
+        <div class="pain-desc">Nggak mau wajah muncul di internet, tapi nggak tahu cara lain.</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">🌀</div>
+        <div class="pain-title">Coba Semua Niche, Nggak Ada yang Berhasil</div>
+        <div class="pain-desc">Loncat dari satu niche ke niche lain tanpa pernah konsisten.</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">💸</div>
+        <div class="pain-title">Sudah Beli Banyak Kursus</div>
+        <div class="pain-desc">Koleksi kursus menumpuk, tapi tidak ada yang kasih arah personal.</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">⏰</div>
+        <div class="pain-title">Nggak Ada Waktu untuk Trial & Error</div>
+        <div class="pain-desc">Butuh hasil cepat, tapi tidak tahu harus mulai dari langkah mana.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT YOU GET -->
+<section id="isi">
+  <span class="section-label">Yang Akan Kamu Dapatkan</span>
+  <h2>3 Produk. <em>1 Harga.</em><br>Satu Arah yang Jelas.</h2>
+  <p class="section-desc">
+    Bukan teori generik — ini sistem yang dirancang untuk memberikan arah personal
+    berdasarkan kepribadian dan tujuanmu sendiri.
+  </p>
+
+  <div class="get-grid">
+    <div class="get-card reveal">
+      <div class="get-icon">🧭</div>
+      <div class="get-title">Modul Psikotes Interaktif</div>
+      <div class="get-desc">Temukan niche yang paling sesuai dengan kepribadian, passion, dan gaya kontenmu dalam 5 menit.</div>
+      <div class="get-items">
+        <div class="get-item">10 soal yang memetakan 10 dimensi kepribadianmu</div>
+        <div class="get-item">Analisis skor 6 niche terpopuler Indonesia</div>
+        <div class="get-item">Roadmap 90 hari personal siap eksekusi</div>
+        <div class="get-item">Panduan marketing profile & persona faceless</div>
+        <div class="get-item">Solusi spesifik untuk hambatan terbesarmu</div>
+      </div>
+    </div>
+
+    <div class="get-card reveal">
+      <div class="get-icon">📋</div>
+      <div class="get-title">PDF Blueprint Lengkap (Bonus)</div>
+      <div class="get-desc">Panduan cetak 9 bab yang bisa kamu baca kapan saja — offline, di mana saja, tanpa internet.</div>
+      <div class="get-items">
+        <div class="get-item">Analisis mendalam 6 niche terbaik Indonesia</div>
+        <div class="get-item">Formula bio untuk setiap niche — copy & paste</div>
+        <div class="get-item">Panduan visual identity & branding</div>
+        <div class="get-item">Checklist harian, mingguan, dan bulanan</div>
+        <div class="get-item">Roadmap 90 hari dengan target spesifik</div>
+      </div>
+    </div>
+
+    <div class="get-card reveal">
+      <div class="get-icon">📅</div>
+      <div class="get-title">Blueprint Konten 30 Hari</div>
+      <div class="get-desc">Tidak perlu lagi bingung mau posting apa. 28 template konten TikTok & Instagram siap dieksekusi.</div>
+      <div class="get-items">
+        <div class="get-item">28 template konten lengkap + hook + caption</div>
+        <div class="get-item">4 formula caption terbukti convert (AIDA, PAS, dll)</div>
+        <div class="get-item">50+ hashtag bank siap salin per kategori</div>
+        <div class="get-item">Jadwal posting optimal per jam WIB</div>
+        <div class="get-item">Strategi konten per fase: ignite → convert → scale</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- FOR WHO -->
+<div class="forwho-section">
+  <div class="forwho-inner">
+    <span class="section-label">Untuk Siapa?</span>
+    <h2>Ini Untukmu —<br>dan <em>Bukan Untukmu</em></h2>
+    <p class="section-desc" style="margin-bottom: 40px;">Jujur itu penting. Ini bukan untuk semua orang.</p>
+
+    <div class="forwho-grid">
+      <div class="forwho-col for-col">
+        <h3>✅ Ini Untukmu Kalau...</h3>
+        <div class="forwho-item"><span class="forwho-check">✅</span> Ingin mulai jualan online tapi bingung niche apa yang cocok</div>
+        <div class="forwho-item"><span class="forwho-check">✅</span> Tidak mau atau tidak bisa tampil di kamera</div>
+        <div class="forwho-item"><span class="forwho-check">✅</span> Ingin side income tanpa modal besar</div>
+        <div class="forwho-item"><span class="forwho-check">✅</span> Sudah coba tapi selalu gagal konsisten</div>
+        <div class="forwho-item"><span class="forwho-check">✅</span> Mau hasil yang personal, bukan tips generik</div>
+        <div class="forwho-item"><span class="forwho-check">✅</span> Serius mau eksekusi, bukan sekadar koleksi e-book</div>
+      </div>
+
+      <div class="forwho-col nofor-col">
+        <h3>❌ Bukan Untukmu Kalau...</h3>
+        <div class="forwho-item"><span class="forwho-check">❌</span> Mencari cara instan kaya tanpa kerja keras</div>
+        <div class="forwho-item"><span class="forwho-check">❌</span> Tidak mau berkomitmen minimal 30 hari</div>
+        <div class="forwho-item"><span class="forwho-check">❌</span> Sudah punya niche yang jelas dan berjalan</div>
+        <div class="forwho-item"><span class="forwho-check">❌</span> Hanya ingin koleksi materi tanpa action</div>
+        <div class="forwho-item"><span class="forwho-check">❌</span> Mencari tool otomasi atau bot media sosial</div>
+        <div class="forwho-item"><span class="forwho-check">❌</span> Tidak serius dan hanya iseng-iseng saja</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section>
+  <span class="section-label">Kata Mereka</span>
+  <h2>Sudah <em>Terbukti</em><br>di 200+ Creator Indonesia</h2>
+  <p class="section-desc">Hasil nyata dari orang-orang yang sudah menggunakannya. Bukan testimoni bayaran.</p>
+
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-text">"Aku pikir nicheku lifestyle, ternyata setelah psikotes ini hasilnya finansial. Dan memang masuk akal — semua temanku selalu tanya soal uang ke aku!"</div>
+      <div class="testi-meta">
+        <div class="testi-avatar">😊</div>
+        <div>
+          <div class="testi-name">Rina, 26 tahun</div>
+          <div class="testi-role">Karyawan swasta, Jakarta</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-text">"Setelah 3 bulan stuck, akhirnya dapat arah yang jelas. Blueprint konten 30 harinya langsung aku eksekusi dan minggu pertama sudah ada yang DM minta link produk."</div>
+      <div class="testi-meta">
+        <div class="testi-avatar">🙋</div>
+        <div>
+          <div class="testi-name">Dinda, 22 tahun</div>
+          <div class="testi-role">Mahasiswa, Surabaya</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-text">"Yang bikin beda dari modul lain: ini personal. Bukan tips generik yang sama untuk semua orang. Roadmap 90 harinya langsung bisa aku terapkan besoknya."</div>
+      <div class="testi-meta">
+        <div class="testi-avatar">👨</div>
+        <div>
+          <div class="testi-name">Bagus, 31 tahun</div>
+          <div class="testi-role">Ibu rumah tangga, Bandung</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- FAQ -->
+<section>
+  <span class="section-label">Pertanyaan Umum</span>
+  <h2>Ada yang <em>Ingin Ditanya?</em></h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Apakah ini cocok untuk pemula yang belum punya followers sama sekali?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Ya, justru ini dirancang khusus untuk pemula. Kamu tidak perlu punya followers, pengalaman, atau modal besar. Yang dibutuhkan hanya HP, koneksi internet, dan kemauan untuk mulai.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Apakah hasilnya benar-benar personal untuk saya?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Ya. Modul psikotes menganalisis 10 dimensi kepribadian dan menghasilkan rekomendasi berdasarkan kombinasi unik jawabanmu. Tidak ada dua orang yang mendapat hasil yang persis sama.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Berapa lama waktu yang dibutuhkan untuk melihat hasil?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Psikotes bisa diselesaikan dalam 5 menit. Hasil langsung tampil setelahnya. Untuk hasil bisnis nyata, ikuti roadmap 90 hari — kebanyakan pengguna melihat penjualan pertama di bulan ke-2.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Bagaimana cara mengaksesnya setelah beli?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Setelah pembayaran berhasil di Gumroad, kamu langsung mendapat link akses ke modul interaktif, file PDF, dan blueprint konten. Semua bisa diakses kapan saja, dari device apapun.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Apakah ada garansi uang kembali?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Ada garansi kepuasan 7 hari. Jika kamu merasa produk ini tidak memberikan nilai yang dijanjikan, hubungi kami dalam 7 hari setelah pembelian dan kami akan refund penuh tanpa pertanyaan.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Saya sudah punya niche, apakah masih perlu ini?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Jika nichemu sudah berjalan dan menghasilkan, mungkin tidak perlu. Tapi jika kamu merasa stuck atau ingin validasi bahwa niche pilihanmu memang tepat, psikotes ini bisa jadi konfirmasi yang berguna.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <div class="final-inner">
+    <span class="section-label">Mulai Sekarang</span>
+    <h2>Satu Keputusan.<br><em>Satu Arah yang Jelas.</em></h2>
+    <p class="section-desc">
+      Ratusan creator pemula sudah mulai perjalanan mereka dengan bundle ini.
+      Yang membedakanmu dengan mereka hanyalah satu klik.
+    </p>
+
+    <div class="final-price">
+      <span class="orig">Rp 220.000</span>
+      <span class="curr">Rp 99.000</span>
+    </div>
+
+    <div>
+      <a href="https://gumroad.com/l/[LINK-PRODUKMU]" class="btn-buy-final" target="_blank">
+        Dapatkan Bundle Lengkapnya Sekarang →
+      </a>
+    </div>
+    <div class="final-guarantee">🔒 Pembayaran aman &nbsp;·&nbsp; Akses instan &nbsp;·&nbsp; Garansi 7 hari</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">[NAMA<em> BRAND</em>]</div>
+  <div class="footer-note">© 2025 · Dibuat dengan ❤️ untuk creator Indonesia · Semua hak dilindungi</div>
+</footer>
+
+<script>
+  // FAQ Toggle
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Scroll Reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Smooth anchor scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
